@@ -1,9 +1,10 @@
 import { NextRequest, NextResponse } from "next/server";
+import { addContactFormData, ContactFormData } from "@/lib/googleSheets";
 
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
-    const { name, phone, inquiryType, message } = body;
+    const { name, email, phone, inquiryType, message } = body;
 
     // 필수 필드 검증
     if (!name || !message) {
@@ -13,11 +14,23 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // 여기에서 실제 이메일 전송 로직을 구현합니다.
-    // 예시: nodemailer, AWS SES, 또는 다른 이메일 API 사용
+    // 문의 데이터를 스프레드시트에 추가
+    const formData: ContactFormData = {
+      name,
+      email,
+      phone: phone || "연락처 없음",
+      inquiryType: inquiryType || "기타",
+      message,
+    };
 
-    // 실제 구현에서는 이메일 발송 코드가 들어갈 자리
-    console.log("문의 접수:", { name, phone, inquiryType, message });
+    const success = await addContactFormData(formData);
+
+    if (!success) {
+      throw new Error("스프레드시트에 데이터 추가 실패");
+    }
+
+    // 로그 남기기
+    console.log("문의 접수 및 스프레드시트 저장 완료:", formData);
 
     // 성공 응답
     return NextResponse.json(

@@ -41,8 +41,6 @@ export default function ContactForm({ onClose }: ContactFormProps) {
       }
 
       setFormStatus("success");
-      // 폼 리셋
-      e.currentTarget.reset();
     } catch (error) {
       console.error("문의 제출 오류:", error);
       setFormStatus("error");
@@ -83,6 +81,19 @@ export default function ContactForm({ onClose }: ContactFormProps) {
               required
               className="w-full border border-gray-300 rounded-lg p-2"
               placeholder="홍길동"
+            />
+          </div>
+
+          <div>
+            <label htmlFor="email" className="block text-gray-700 mb-2">
+              이메일
+            </label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              className="w-full border border-gray-300 rounded-lg p-2"
+              placeholder="example@example.com"
             />
           </div>
 
