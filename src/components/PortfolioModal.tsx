@@ -18,7 +18,7 @@ interface PortfolioModalProps {
 }
 
 export default function PortfolioModal({ item, onClose }: PortfolioModalProps) {
-  const [activeIndex, setActiveIndex] = useState(0);
+  const [, setActiveIndex] = useState(0);
 
   useEffect(() => {
     const handleEsc = (e: KeyboardEvent) => {

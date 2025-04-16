@@ -56,7 +56,7 @@ export async function getPortfolioItems(): Promise<PortfolioItem[]> {
         .map((url: string) => url.trim());
       const imageDescriptions = (row[4] || "")
         .split(";")
-        .map((desc: String) => desc.trim());
+        .map((desc: string) => desc.trim());
 
       const images: PortfolioImage[] = imageUrls.map(
         (url: string, index: number) => ({
