@@ -34,24 +34,8 @@ export default async function Home() {
       </main>
 
       <footer className="bg-gray-800 text-white py-8">
-        <div className="container mx-auto px-4">
-          <div className="flex flex-col md:flex-row justify-between">
-            <div className="mb-6 md:mb-0">
-              <h2 className="text-xl font-bold mb-4">회사명</h2>
-              <p>아름다운 공간을 만드는 인테리어 전문 기업</p>
-            </div>
-
-            <div>
-              <h2 className="text-xl font-bold mb-4">연락처</h2>
-              <p>전화: 010-1234-5678</p>
-              <p>이메일: info@company.com</p>
-              <p>주소: 서울시 강남구 테헤란로 123</p>
-            </div>
-          </div>
-
-          <div className="mt-8 pt-8 border-t border-gray-700 text-center text-gray-400 text-sm">
-            © {new Date().getFullYear()} 회사명. All rights reserved.
-          </div>
+        <div className="mt-8 pt-8 border-t border-gray-700 text-center text-gray-400 text-sm">
+          © {new Date().getFullYear()} 회사명. All rights reserved.
         </div>
       </footer>
     </div>
