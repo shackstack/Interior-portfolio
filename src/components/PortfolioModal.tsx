@@ -1,9 +1,16 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import { PortfolioItem } from "@/lib/googleSheets";
 import { XMarkIcon } from "@heroicons/react/24/solid";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, Pagination } from "swiper/modules";
+
+// Swiper 스타일 import
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
 
 interface PortfolioModalProps {
   item: PortfolioItem | null;
@@ -11,6 +18,8 @@ interface PortfolioModalProps {
 }
 
 export default function PortfolioModal({ item, onClose }: PortfolioModalProps) {
+  const [activeIndex, setActiveIndex] = useState(0);
+
   useEffect(() => {
     const handleEsc = (e: KeyboardEvent) => {
       if (e.key === "Escape") {
@@ -21,6 +30,11 @@ export default function PortfolioModal({ item, onClose }: PortfolioModalProps) {
     window.addEventListener("keydown", handleEsc);
     return () => window.removeEventListener("keydown", handleEsc);
   }, [onClose]);
+
+  useEffect(() => {
+    // 모달이 열릴 때마다 첫 번째 이미지로 리셋
+    setActiveIndex(0);
+  }, [item]);
 
   if (!item) return null;
 
@@ -40,13 +54,32 @@ export default function PortfolioModal({ item, onClose }: PortfolioModalProps) {
           <XMarkIcon className="w-6 h-6 text-gray-700" />
         </button>
 
-        <div className="relative w-full aspect-[4/3]">
-          <Image
-            src={item.imageUrl}
-            alt={item.title}
-            fill
-            className="object-cover"
-          />
+        <div className="relative w-full">
+          <Swiper
+            modules={[Navigation, Pagination]}
+            navigation
+            pagination={{ clickable: true }}
+            onSlideChange={(swiper) => setActiveIndex(swiper.activeIndex)}
+            className="mySwiper"
+          >
+            {item.images.map((image, index) => (
+              <SwiperSlide key={index}>
+                <div className="relative w-full aspect-[4/3]">
+                  <Image
+                    src={image.url}
+                    alt={`${item.title} 이미지 ${index + 1}`}
+                    fill
+                    className="object-cover"
+                  />
+                  {image.description && (
+                    <div className="absolute bottom-0 left-0 right-0 bg-black/50 text-white p-3">
+                      <p className="text-sm">{image.description}</p>
+                    </div>
+                  )}
+                </div>
+              </SwiperSlide>
+            ))}
+          </Swiper>
         </div>
 
         <div className="p-6">

@@ -1,11 +1,12 @@
 import PortfolioGrid from "@/components/PortfolioGrid";
 import { getPortfolioItems } from "@/lib/googleSheets";
 import { mockPortfolioItems } from "@/lib/mockData";
+// import { mockPortfolioItems } from "@/lib/mockData";
 
 export const dynamic = "force-dynamic";
 
 export default async function Home() {
-  // 실제 API 호출 대신 목업 데이터 사용
+  // 실제 API 호출 사용
   const portfolioItems = await getPortfolioItems();
   // const portfolioItems = mockPortfolioItems;
 
