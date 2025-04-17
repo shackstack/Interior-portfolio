@@ -38,7 +38,7 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
       onClick={onClose}
     >
       <div
-        className="relative bg-white rounded-lg w-full max-w-xl max-h-[90vh] overflow-y-auto"
+        className="relative bg-white rounded-lg w-full max-w-xl max-h-[80vh] overflow-y-auto"
         onClick={(e) => e.stopPropagation()}
       >
         <button
