@@ -1,10 +1,12 @@
 import type { Metadata } from "next";
-import { Noto_Sans_KR } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 
-const notoSansKr = Noto_Sans_KR({
-  subsets: ["latin"],
-  weight: ["400", "500", "700"],
+const suit = localFont({
+  src: "./SUIT-Variable.woff2",
+  variable: "--font-suit",
+  display: "swap",
+  weight: "100 900",
 });
 
 export const metadata: Metadata = {
@@ -19,7 +21,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ko">
-      <body className={`${notoSansKr.className} antialiased`}>{children}</body>
+      <body className={`${suit.className} antialiased`}>{children}</body>
     </html>
   );
 }
