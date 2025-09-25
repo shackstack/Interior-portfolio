@@ -62,10 +62,10 @@ export default function PortfolioDetailPage() {
   }
 
   return (
-    <div className="min-h-screen bg-white w-2/3 mx-auto py-8">
+    <div className="min-h-screen bg-white w-full md:w-2/3 mx-auto py-8">
       {/* 포트폴리오 정보 */}
-      <div className="container">
-        <h1 className="text-3xl font-bold mb-4">{item.title}</h1>
+      <div className="container pl-4 md:pl-0">
+        <h1 className="text-3xl font-bold mb-4 ">{item.title}</h1>
         <div className="prose max-w-none">
           <p className="text-gray-700 whitespace-pre-line text-lg leading-relaxed">
             {item.description}
