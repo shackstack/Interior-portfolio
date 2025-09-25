@@ -13,6 +13,13 @@ export default async function Home() {
 
   return (
     <div className="min-h-screen bg-gray-50 flex flex-col">
+      <div className="w-full h-[80vh] overflow-hidden">
+        <img
+          src={portfolioItems[0].images[0].url}
+          alt="main"
+          className="w-full object-cover h-[80vh] hover:scale-102 transition-all duration-300"
+        />
+      </div>
       <div className="py-8 text-center">
         <h1 className="text-2xl md:text-3xl font-bold">인테리어 포트폴리오</h1>
         <p className="text-gray-500 mt-2">
