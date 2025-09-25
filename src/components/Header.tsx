@@ -13,7 +13,7 @@ export default function Header() {
         <div className="container mx-auto px-4 py-4">
           <div className="flex justify-between items-center">
             <Link href="/" className="text-xl md:text-2xl font-bold">
-              인테리어 포트폴리오
+              송 디자인
             </Link>
 
             <nav className="flex items-center gap-4">
