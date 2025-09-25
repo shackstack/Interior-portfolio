@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import ContactModal from "./ContactModal";
+import Image from "next/image";
 
 export default function Header() {
   const [isContactModalOpen, setIsContactModalOpen] = useState(false);
@@ -12,9 +13,15 @@ export default function Header() {
       <header className="bg-white shadow-sm sticky top-0 z-20">
         <div className="container mx-auto px-4 py-4">
           <div className="flex justify-between items-center">
-            <Link href="/" className="text-xl md:text-2xl font-bold">
-              송 디자인
-            </Link>
+            <div className="flex items-center gap-2">
+              <Image src="/logo.png" alt="logo" width={32} height={32} />
+              <Link
+                href="/"
+                className="text-xl md:text-2xl font-light text-gray-600"
+              >
+                송 디자인
+              </Link>
+            </div>
 
             <nav className="flex items-center gap-4">
               <button
