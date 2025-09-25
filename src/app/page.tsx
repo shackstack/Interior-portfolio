@@ -1,8 +1,5 @@
 import PortfolioGrid from "@/components/PortfolioGrid";
 import { getPortfolioItems } from "@/lib/googleSheets";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
-// import { mockPortfolioItems } from "@/lib/mockData";
 
 export const dynamic = "force-dynamic";
 
@@ -16,8 +13,6 @@ export default async function Home() {
 
   return (
     <div className="min-h-screen bg-gray-50 flex flex-col">
-      <Header />
-
       <div className="py-8 text-center">
         <h1 className="text-2xl md:text-3xl font-bold">인테리어 포트폴리오</h1>
         <p className="text-gray-500 mt-2">
@@ -31,8 +26,6 @@ export default async function Home() {
           categories={categories}
         />
       </main>
-
-      <Footer />
     </div>
   );
 }
