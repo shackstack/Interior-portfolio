@@ -1,4 +1,3 @@
-import MapSection from "@/components/MapSection";
 import PortfolioGrid from "@/components/PortfolioGrid";
 import { getPortfolioItems } from "@/lib/googleSheets";
 
@@ -34,9 +33,6 @@ export default async function Home() {
           categories={categories}
         />
       </main>
-
-      {/* 카카오지도 섹션 */}
-      <MapSection />
     </div>
   );
 }
