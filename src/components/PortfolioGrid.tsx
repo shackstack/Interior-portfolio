@@ -27,12 +27,10 @@ export default function PortfolioGrid({
   return (
     <div className="container mx-auto px-4 py-8">
       {/* 카테고리 필터 */}
-      <div className="flex flex-wrap gap-2 mb-6 justify-center">
+      <div className="flex flex-wrap gap-2 mb-6">
         <button
-          className={`px-4 py-2 rounded-full text-sm font-medium ${
-            selectedCategory === "전체"
-              ? "bg-gray-900 text-white"
-              : "bg-gray-200 text-gray-800 hover:bg-gray-300"
+          className={`px-4 py-2 rounded-full text-sm font-medium text-gray-800 ${
+            selectedCategory === "전체" ? "font-bold underline" : "font-normal"
           }`}
           onClick={() => setSelectedCategory("전체")}
         >
@@ -42,10 +40,10 @@ export default function PortfolioGrid({
         {categories.map((category) => (
           <button
             key={category}
-            className={`px-4 py-2 rounded-full text-sm font-medium ${
+            className={`px-4 py-2 rounded-full text-sm font-medium text-gray-800 ${
               selectedCategory === category
-                ? "bg-gray-900 text-white"
-                : "bg-gray-200 text-gray-800 hover:bg-gray-300"
+                ? "font-bold underline"
+                : "font-normal"
             }`}
             onClick={() => setSelectedCategory(category)}
           >
