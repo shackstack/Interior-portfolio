@@ -15,7 +15,9 @@ export default function PortfolioCard({ item, onClick }: PortfolioCardProps) {
       onClick={() => onClick(item)}
     >
       <div className="absolute top-0 left-0 right-0 z-10 bg-gradient-to-b from-black/70 to-transparent p-3">
-        <h3 className="text-lg font-bold text-white truncate">{item.title}</h3>
+        <h3 className="text-lg font-medium text-white truncate">
+          {item.title}
+        </h3>
       </div>
 
       <div className="aspect-square relative">
