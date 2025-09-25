@@ -3,7 +3,6 @@
 import { useState } from "react";
 import { PortfolioItem } from "@/lib/googleSheets";
 import PortfolioCard from "./PortfolioCard";
-import PortfolioModal from "./PortfolioModal";
 import { useRouter } from "next/navigation";
 
 interface PortfolioGridProps {
