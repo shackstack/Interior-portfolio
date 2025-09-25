@@ -4,6 +4,7 @@ import { useState } from "react";
 import { PortfolioItem } from "@/lib/googleSheets";
 import PortfolioCard from "./PortfolioCard";
 import PortfolioModal from "./PortfolioModal";
+import { useRouter } from "next/navigation";
 
 interface PortfolioGridProps {
   portfolioItems: PortfolioItem[];
@@ -15,7 +16,6 @@ export default function PortfolioGrid({
   categories,
 }: PortfolioGridProps) {
   const [selectedCategory, setSelectedCategory] = useState<string>("전체");
-  const [selectedItem, setSelectedItem] = useState<PortfolioItem | null>(null);
 
   const filteredItems =
     selectedCategory === "전체"
@@ -23,6 +23,8 @@ export default function PortfolioGrid({
       : portfolioItems.filter((item) => item.category === selectedCategory);
 
   const sortedItems = [...filteredItems].sort((a, b) => a.order - b.order);
+
+  const router = useRouter();
 
   return (
     <div className="container mx-auto px-4 py-8">
@@ -58,7 +60,7 @@ export default function PortfolioGrid({
           <PortfolioCard
             key={item.id}
             item={item}
-            onClick={(item) => setSelectedItem(item)}
+            onClick={(item) => router.push(`/portfolio/${item.id}`)}
           />
         ))}
       </div>
@@ -70,14 +72,6 @@ export default function PortfolioGrid({
             해당 카테고리에 포트폴리오가 없습니다.
           </p>
         </div>
-      )}
-
-      {/* 모달 */}
-      {selectedItem && (
-        <PortfolioModal
-          item={selectedItem}
-          onClose={() => setSelectedItem(null)}
-        />
       )}
     </div>
   );
