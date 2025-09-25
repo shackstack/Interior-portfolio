@@ -21,7 +21,7 @@ export default async function Home() {
         />
       </div>
       <div className="py-8 text-center">
-        <h1 className="text-2xl md:text-3xl font-bold">인테리어 포트폴리오</h1>
+        <h1 className="text-2xl md:text-3xl font-bold">포트폴리오</h1>
         <p className="text-gray-500 mt-2">
           고객의 공간을 아름답게 디자인합니다
         </p>

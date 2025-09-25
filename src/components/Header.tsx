@@ -19,7 +19,7 @@ export default function Header() {
             <nav className="flex items-center gap-4">
               <button
                 onClick={() => setIsContactModalOpen(true)}
-                className="text-gray-800 rounded-full py-2 px-4 hover:bg-gray-700 transition-colors"
+                className="text-gray-800 rounded-full py-2 px-4 "
               >
                 문의하기
               </button>
