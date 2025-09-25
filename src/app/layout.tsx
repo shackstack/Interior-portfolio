@@ -12,8 +12,20 @@ const suit = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "인테리어 포트폴리오",
-  description: "고객의 공간을 아름답게 디자인하는 인테리어 포트폴리오",
+  title: "송 디자인",
+  description: "쾌적한 생활공간을 만드는 송디자인 입니다.",
+  openGraph: {
+    title: "송 디자인",
+    description: "쾌적한 생활공간을 만드는 송디자인 입니다.",
+    images: [
+      {
+        url: "/logo.png",
+      },
+    ],
+  },
+  icons: {
+    icon: "/logo.png",
+  },
 };
 
 export default function RootLayout({
