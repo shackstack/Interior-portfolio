@@ -76,7 +76,7 @@ export default function PortfolioDetailPage() {
       {/* 이미지 */}
       <div className="flex gap-8 flex-col items-center py-8">
         {item.images.map((image, index) => (
-          <div className="relative w-full aspect-[4/3]">
+          <div className="relative w-full aspect-[4/3]" key={image.url}>
             <Image
               src={image.url}
               alt={`${item.title} 이미지 ${index + 1}`}
